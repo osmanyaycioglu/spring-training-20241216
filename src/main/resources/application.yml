@@ -47,3 +47,6 @@ spring:
   profiles:
     default: live
     active: dev
+app:
+  group:
+    name: test
