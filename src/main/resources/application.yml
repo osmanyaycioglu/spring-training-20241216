@@ -47,6 +47,22 @@ spring:
   profiles:
     default: live
     active: dev
+  datasource:
+    driverClassName: org.h2.Driver
+    password: ''
+    url: jdbc:h2:file:./data/demo
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
 app:
   group:
     name: test
