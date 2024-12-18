@@ -1,0 +1,49 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+my:
+  app:
+    language: eng
+    props:
+      addresses:
+        - city: istanbul
+          street: atasehir
+        - city: ankara
+          street: mamak
+        - city: izmir
+          street: karşıyaka
+      application: app1
+      description: deneme training
+      eir-props:
+        bind-address: istanbul xyz
+        port: 7088
+        prefix: pref1
+      git-version: 1.1.0
+      locations:
+        - istanbul
+        - ankara
+        - izmir
+      phone-map:
+        ev:
+          name: en numarası
+          number: 327646342
+        ofis:
+          name: ofis numarası
+          number: 237462364
+      rule: rule1
+      socket-port: 10000
+      test-version: 5
+server:
+  error:
+    include-binding-errors: always
+    include-exception: true
+    include-message: always
+  port: 9090
+spring:
+  application:
+    name: spring-training-20241216
+  profiles:
+    default: live
+    active: dev
