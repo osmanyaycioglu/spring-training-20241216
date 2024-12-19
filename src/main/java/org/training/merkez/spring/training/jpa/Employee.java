@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.training.merkez.spring.training.models.Address;
 import org.training.merkez.spring.training.models.Phone;
 
@@ -33,9 +35,11 @@ public class Employee {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
+    @Fetch(FetchMode.JOIN)
     private Address address;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "employee")
+    @Fetch(FetchMode.SUBSELECT)
     private Set<Phone> phones;
 
     private ZonedDateTime creationDate;

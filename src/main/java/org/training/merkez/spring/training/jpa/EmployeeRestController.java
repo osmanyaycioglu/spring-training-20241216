@@ -24,4 +24,9 @@ public class EmployeeRestController {
         return employeeRepository.findAll();
     }
 
+    @GetMapping("/get/by/name")
+    public List<Employee> getByName(@RequestParam String name) {
+        return employeeRepository.findAll();
+    }
+
 }
