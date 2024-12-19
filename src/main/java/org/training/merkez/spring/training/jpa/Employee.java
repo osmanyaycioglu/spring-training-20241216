@@ -3,10 +3,18 @@ package org.training.merkez.spring.training.jpa;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.training.merkez.spring.training.models.Address;
+import org.training.merkez.spring.training.models.Phone;
 
-@Data
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Set;
+
 @Entity
+@Getter
+@Setter
 @Table(name = "employee")
 public class Employee {
     @Id
@@ -23,7 +31,30 @@ public class Employee {
     @NotBlank
     private String department;
 
-    @OneToOne(fetch = FetchType.EAGER,cascade ={CascadeType.ALL} )
+    @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "employee")
+    private Set<Phone> phones;
+
+    private ZonedDateTime creationDate;
+
+    private ZonedDateTime updateDate;
+
+    @PrePersist
+    public void creationDate() {
+        creationDate = ZonedDateTime.now();
+    }
+
+    @PreUpdate
+//    @PreRemove
+//    @PostUpdate
+//    @PostPersist
+//    @PostRemove
+//    @PostLoad
+    public void updateDate() {
+        updateDate = ZonedDateTime.now();
+    }
+
 }
