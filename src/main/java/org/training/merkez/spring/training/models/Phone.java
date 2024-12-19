@@ -1,4 +1,4 @@
-package org.training.merkez.spring.training.rest.model;
+package org.training.merkez.spring.training.models;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
