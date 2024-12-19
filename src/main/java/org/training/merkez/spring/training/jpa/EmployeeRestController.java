@@ -1,5 +1,6 @@
 package org.training.merkez.spring.training.jpa;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +13,7 @@ public class EmployeeRestController {
     private final IEmployeeRepository employeeRepository;
 
     @PostMapping("/add")
-    public String add(@RequestBody Employee employeeParam) {
+    public String add(@Valid @RequestBody Employee employeeParam) {
         employeeParam.getPhones()
                      .forEach(p -> p.setEmployee(employeeParam));
         employeeRepository.save(employeeParam);
