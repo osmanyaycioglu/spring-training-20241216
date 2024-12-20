@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class PhoneDto {
-    private Long phoneId;
     private String name;
     private String number;
 

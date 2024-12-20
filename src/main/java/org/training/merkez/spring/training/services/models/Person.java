@@ -31,6 +31,7 @@ public class Person {
     private Address           address;
     private ZonedDateTime     createDate;
     private ZonedDateTime     updateDate;
+    @Enumerated(EnumType.STRING)
     private EPersonStatus     personStatus;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "person")
@@ -41,6 +42,7 @@ public class Person {
     public void createDate(){
         createDate = ZonedDateTime.now();
         personUuid = UUID.randomUUID().toString();
+        personStatus = EPersonStatus.ACTIVE;
     }
 
     @PreUpdate

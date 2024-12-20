@@ -46,13 +46,24 @@ public class PersonDao {
             activityInfoLoc.setDescription("Person disabled");
             activityInfoLoc.setActivity(8);
             personActivityRepository.save(activityInfoLoc);
+        } else {
+            throw new IllegalStateException("Bu id li person yok : " + personIdParam);
         }
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public void activatePerson(String personIdParam){
         Person byPersonUuidLoc = personRepository.findByPersonUuid(personIdParam);
         if (byPersonUuidLoc != null){
             personRepository.updatePersonUuid(EPersonStatus.ACTIVE,byPersonUuidLoc.getPersonId());
+            ActivityInfo activityInfoLoc = new ActivityInfo();
+            activityInfoLoc.setPerson(byPersonUuidLoc);
+            activityInfoLoc.setActivityDate(ZonedDateTime.now());
+            activityInfoLoc.setDescription("Person activated");
+            activityInfoLoc.setActivity(2);
+            personActivityRepository.save(activityInfoLoc);
+        }else {
+            throw new IllegalStateException("Bu id li person yok : " + personIdParam);
         }
     }
 

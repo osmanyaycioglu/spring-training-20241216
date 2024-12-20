@@ -1,5 +1,6 @@
 package org.training.merkez.spring.training.services;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.training.merkez.spring.training.data.PersonDao;
 import org.training.merkez.spring.training.services.models.Person;
@@ -7,8 +8,9 @@ import org.training.merkez.spring.training.services.models.Person;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PersonQueryService {
-    private PersonDao personDao;
+    private final PersonDao personDao;
 
 
     public List<Person> getAllPersons(){
