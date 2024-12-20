@@ -2,16 +2,14 @@ package org.training.merkez.spring.training.jpa;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.training.merkez.spring.training.models.Address;
-import org.training.merkez.spring.training.models.Phone;
+import org.training.merkez.spring.training.models.TrainingPhone;
+import org.training.merkez.spring.training.models.TrainingAddress;
 
 import java.time.ZonedDateTime;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -36,11 +34,11 @@ public class Employee {
     @OneToOne(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     @JoinColumn(name = "address_id")
     @Fetch(FetchMode.JOIN)
-    private Address address;
+    private TrainingAddress address;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "employee")
     @Fetch(FetchMode.SUBSELECT)
-    private Set<Phone> phones;
+    private Set<TrainingPhone> trainingPhones;
 
     private ZonedDateTime creationDate;
 

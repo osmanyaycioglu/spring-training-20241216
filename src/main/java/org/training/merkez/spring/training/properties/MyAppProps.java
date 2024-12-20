@@ -7,8 +7,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
-import org.training.merkez.spring.training.models.Address;
-import org.training.merkez.spring.training.models.Phone;
+import org.training.merkez.spring.training.models.TrainingAddress;
+import org.training.merkez.spring.training.models.TrainingPhone;
 
 import java.util.List;
 import java.util.Map;
@@ -28,8 +28,8 @@ public class MyAppProps {
     @Max(65535)
     private Integer socketPort;
     private EirProps eirProps;
-    private List<String> locations;
-    private List<Address> addresses;
-    private Map<String, Phone> phoneMap;
+    private List<String>          locations;
+    private List<TrainingAddress>      trainingAddresses;
+    private Map<String, TrainingPhone> phoneMap;
 
 }

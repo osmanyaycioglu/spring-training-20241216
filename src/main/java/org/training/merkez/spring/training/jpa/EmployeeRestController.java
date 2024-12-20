@@ -14,7 +14,7 @@ public class EmployeeRestController {
 
     @PostMapping("/add")
     public String add(@Valid @RequestBody Employee employeeParam) {
-        employeeParam.getPhones()
+        employeeParam.getTrainingPhones()
                      .forEach(p -> p.setEmployee(employeeParam));
         employeeRepository.save(employeeParam);
         return "OK";

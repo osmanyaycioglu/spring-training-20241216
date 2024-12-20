@@ -2,15 +2,14 @@ package org.training.merkez.spring.training.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "address")
+@Table(name = "trainin_address")
 @Getter
 @Setter
-public class Address {
+public class TrainingAddress {
     @Id
     @GeneratedValue
     @Column(name = "address_id")

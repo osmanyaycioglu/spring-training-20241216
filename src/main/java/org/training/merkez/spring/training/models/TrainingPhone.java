@@ -3,16 +3,15 @@ package org.training.merkez.spring.training.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.training.merkez.spring.training.jpa.Employee;
 
 @Entity
-@Table(name = "phone")
+@Table(name = "training_phone")
 @Getter
 @Setter
-public class  Phone {
+public class TrainingPhone {
     @Id
     @GeneratedValue
     @Column(name = "phone_id")

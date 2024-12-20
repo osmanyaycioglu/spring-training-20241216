@@ -5,10 +5,8 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.training.merkez.spring.training.models.Address;
 import org.training.merkez.spring.training.validation.CheckNotAllowedWords;
 
-import java.util.List;
 import java.util.Set;
 
 @Data
