@@ -1,12 +1,16 @@
 package org.training.merkez.spring.training.rest;
 
-import org.springframework.stereotype.Controller;
+import a.b.c.MyOtherPackageBean;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.training.merkez.spring.training.rest.model.Person;
+import org.training.merkez.spring.training.rest.model.PersonDto;
 
 @RestController
 @RequestMapping("/my/first")
+@RequiredArgsConstructor
 public class MyFirstRestController {
+    private final MyOtherPackageBean myOtherPackageBean;
+
 
     @RequestMapping(value = "/hello1", method = RequestMethod.GET)
     public String hello1() {
@@ -64,7 +68,7 @@ public class MyFirstRestController {
     }
 
     @PostMapping("/hello7")
-    public String hello7(@RequestBody Person personParam) {
+    public String hello7(@RequestBody PersonDto personParam) {
         return "hello7 " + personParam;
     }
 

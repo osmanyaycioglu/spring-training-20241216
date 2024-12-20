@@ -1,7 +1,7 @@
 package org.training.merkez.spring.training.rest;
 
 import org.springframework.web.bind.annotation.*;
-import org.training.merkez.spring.training.rest.model.Person;
+import org.training.merkez.spring.training.rest.model.PersonDto;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
 public class PersonQueryRestController {
 
     @PostMapping("/get/all")
-    public List<Person> getAllPerson(){
+    public List<PersonDto> getAllPerson(){
         return null;
     }
 

@@ -3,6 +3,9 @@ management:
     web:
       exposure:
         include: '*'
+  endpoint:
+    env:
+      show-values: always
 my:
   app:
     language: eng

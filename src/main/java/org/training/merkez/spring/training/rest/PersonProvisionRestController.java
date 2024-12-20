@@ -1,19 +1,30 @@
 package org.training.merkez.spring.training.rest;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.training.merkez.spring.training.rest.model.Person;
+import org.training.merkez.spring.training.rest.model.AddPersonResult;
+import org.training.merkez.spring.training.rest.model.PersonDto;
+import org.training.merkez.spring.training.services.PersonProvisionService;
 
 @RestController
 @RequestMapping("/api/v1/person/provision")
+@RequiredArgsConstructor
 public class PersonProvisionRestController {
+    private final PersonProvisionService personProvisionService;
 
     @PostMapping("/add")
-    public void addPerson(@Valid @RequestBody Person personParam){
+    public AddPersonResult addPerson(@Valid @RequestBody PersonDto personParam){
+        personProvisionService.addPerson();
+        return null;
     }
 
     @GetMapping("/disable")
-    public void disablePerson(@RequestParam Long personId){
+    public void disablePerson(@RequestParam String personId){
+    }
+
+    @GetMapping("/enable")
+    public void enablePerson(@RequestParam String personId){
     }
 
 }
