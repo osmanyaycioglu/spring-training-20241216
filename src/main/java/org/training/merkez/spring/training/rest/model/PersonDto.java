@@ -9,6 +9,7 @@ import org.training.merkez.spring.training.models.Address;
 import org.training.merkez.spring.training.validation.CheckNotAllowedWords;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -20,7 +21,7 @@ public class PersonDto {
                                    "abc",
                                    "qwe"
     })
-    private String         name;
+    private String        name;
     @NotEmpty
     @CheckNotAllowedWords(value = {"123",
                                    "abc",
@@ -38,11 +39,11 @@ public class PersonDto {
                                    "ana",
                                    "ade"
     })
-    private String         location;
+    private String        location;
     @Valid
-    private List<PhoneDto> phones;
+    private Set<PhoneDto> phones;
     @Valid
-    private AddressDto     address;
+    private AddressDto    address;
 
 
 }
