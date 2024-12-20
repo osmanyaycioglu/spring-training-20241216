@@ -7,6 +7,7 @@ import org.training.merkez.spring.training.rest.mappers.IPersonMapper;
 import org.training.merkez.spring.training.rest.model.AddPersonResult;
 import org.training.merkez.spring.training.rest.model.PersonDto;
 import org.training.merkez.spring.training.services.PersonProvisionService;
+import org.training.merkez.spring.training.services.models.Person;
 
 @RestController
 @RequestMapping("/api/v1/person/provision")
@@ -16,16 +17,21 @@ public class PersonProvisionRestController {
 
     @PostMapping("/add")
     public AddPersonResult addPerson(@Valid @RequestBody PersonDto personParam) {
-        personProvisionService.addPerson(IPersonMapper.PERSON_MAPPER.toPerson(personParam));
-        return null;
+        Person personLoc = personProvisionService.addPerson(IPersonMapper.PERSON_MAPPER.toPerson(personParam));
+        return new AddPersonResult("Yeni kişi yaratıldı",
+                                   personLoc.getPersonUuid());
     }
 
     @GetMapping("/disable")
-    public void disablePerson(@RequestParam String personId) {
+    public String disablePerson(@RequestParam String personId) {
+        personProvisionService.disable(personId);
+        return "OK";
     }
 
     @GetMapping("/enable")
-    public void enablePerson(@RequestParam String personId) {
+    public String enablePerson(@RequestParam String personId) {
+        personProvisionService.enable(personId);
+        return "OK";
     }
 
 }

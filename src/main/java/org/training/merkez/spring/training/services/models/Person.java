@@ -6,6 +6,7 @@ import lombok.*;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -39,6 +40,7 @@ public class Person {
     @PrePersist
     public void createDate(){
         createDate = ZonedDateTime.now();
+        personUuid = UUID.randomUUID().toString();
     }
 
     @PreUpdate

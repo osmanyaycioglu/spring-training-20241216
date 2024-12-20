@@ -8,6 +8,8 @@ import org.training.merkez.spring.training.rest.model.PhoneDto;
 import org.training.merkez.spring.training.services.models.Person;
 import org.training.merkez.spring.training.services.models.Phone;
 
+import java.util.List;
+
 @Mapper
 public interface IPersonMapper {
 
@@ -17,7 +19,12 @@ public interface IPersonMapper {
 
     PersonDto toPersonDto(Person person);
 
+    List<Person> toPersons(List<PersonDto> person);
+
+    List<PersonDto> toPersonDtos(List<Person> person);
+
     Phone toPhone(PhoneDto phone);
 
     PhoneDto toPhoneDto(Phone phone);
+
 }
